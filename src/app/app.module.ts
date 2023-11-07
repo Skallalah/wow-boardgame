@@ -11,34 +11,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { HomeModule } from './home/home.module';
-import { DetailModule } from './detail/detail.module';
-
 import { AppComponent } from './app.component';
+import { ScreenModule } from './screens/screen.module';
 
 // AoT requires an exported function for factories
-const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>  new TranslateHttpLoader(http, './assets/i18n/', '.json');
+const httpLoaderFactory = (http: HttpClient): TranslateHttpLoader =>
+    new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    CoreModule,
-    SharedModule,
-    HomeModule,
-    DetailModule,
-    AppRoutingModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        CoreModule,
+        SharedModule,
+        ScreenModule,
+        AppRoutingModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpLoaderFactory,
+                deps: [HttpClient],
+            },
+        }),
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}
