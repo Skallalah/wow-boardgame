@@ -1,0 +1,41 @@
+.container {
+    box-sizing: border-box;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    width: fit-content;
+    height: 100%;
+
+    .experience-point {
+        display: flex;
+
+        align-items: center;
+
+        width: fit-content;
+        height: 100%;
+
+        border: #000 1px solid;
+
+        .step {
+        }
+
+        .characters {
+            display: flex;
+            align-items: center;
+
+            width: fit-content;
+        }
+
+        .background-text {
+            width: inherit;
+            height: max-content;
+            text-align: center;
+            vertical-align: middle;
+            position: absolute;
+            z-index: -1;
+        }
+    }
+}

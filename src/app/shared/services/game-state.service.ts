@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { RxState } from '@rx-angular/state';
 
-import { Character } from '../entities/character.entity';
+import {
+    Character,
+    ClassEnum,
+    FactionEnum,
+} from '../entities/character.entity';
+import { selectSlice } from '@rx-angular/state/selections';
+import { map } from 'rxjs';
 
 interface GameState {
     turn: number;
@@ -14,13 +20,39 @@ interface GameState {
 
     // players
     player_1: Character;
+    players: Character[];
 }
 
 @Injectable({
     providedIn: 'root',
 })
 export class GameStateService extends RxState<GameState> {
+    private readonly INIT_CONFIG: Partial<GameState> = {
+        turn: 0,
+
+        coop: false,
+        pvpEnding: true,
+        dungeoneering: false,
+        deadlyPvP: false,
+
+        // TODO: remove testing values
+        player_1: {
+            id: 'warrior',
+            faction: FactionEnum.Alliance,
+            class: ClassEnum.Warrior,
+            experience: 0,
+            gold: 5,
+        },
+        players: [],
+    };
+
+    readonly players$ = this.select(selectSlice(['player_1'])).pipe(
+        map(({ player_1 }) => [player_1])
+    );
+
     constructor() {
         super();
+
+        this.set(this.INIT_CONFIG);
     }
 }
