@@ -11,6 +11,15 @@ import { ColorConfig } from '../../shared/config/color.config';
 export class CharacterTokenComponent {
     @Input() characterIdentifier: string | undefined;
 
+    get image() {
+        return this.characterIdentifier
+            ? CharactersConfig.getCharacterData(
+                  this.characterIdentifier,
+                  'portrait'
+              )
+            : '';
+    }
+
     @HostBinding('style.--faction-color')
     private get value(): string {
         const faction = this.characterIdentifier
@@ -26,13 +35,4 @@ export class CharacterTokenComponent {
     }
 
     constructor() {}
-
-    getImage() {
-        return this.characterIdentifier
-            ? CharactersConfig.getCharacterData(
-                  this.characterIdentifier,
-                  'portrait'
-              )
-            : '';
-    }
 }
