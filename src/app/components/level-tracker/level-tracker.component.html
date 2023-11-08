@@ -5,15 +5,17 @@
             *ngFor="let step of $.experiencePointSteps"
         >
             <div class="step">
-                <span *ngIf="step.level > 0; else point">
+                <span class="level" *ngIf="step.level > 0; else point">
                     Niveau {{ step.level }}
                 </span>
                 <ng-template #point>{{ step.experience }} </ng-template>
             </div>
             <div class="characters">
-                <span *ngFor="let character of step.players">
-                    {{ character.id }}
-                </span>
+                <app-character-token
+                    class="icon"
+                    *ngFor="let character of step.players"
+                    [characterIdentifier]="character.id"
+                ></app-character-token>
             </div>
         </div>
     </div>

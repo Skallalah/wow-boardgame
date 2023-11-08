@@ -1,7 +1,7 @@
 .container {
     box-sizing: border-box;
 
-    padding: 10px;
+    padding: 5px;
 
     display: flex;
     flex-direction: column-reverse;
@@ -17,25 +17,39 @@
         width: fit-content;
         height: 100%;
 
-        border: #000 1px solid;
-
         .step {
+            padding: 5px;
+
+            display: flex;
+            align-items: center;
+            justify-content: end;
+
+            border-right: solid 1px black;
+
+            width: 60px;
+            height: 100%;
+
+            .level {
+                -webkit-text-stroke: 0.4px black;
+                color: yellow;
+            }
         }
 
         .characters {
+            padding: 5px;
+
             display: flex;
-            align-items: center;
+            align-items: baseline;
+            justify-content: start;
 
             width: fit-content;
-        }
+            height: inherit;
 
-        .background-text {
-            width: inherit;
-            height: max-content;
-            text-align: center;
-            vertical-align: middle;
-            position: absolute;
-            z-index: -1;
+            // TODO: Replace by actualised value
+            .icon {
+                height: 24px;
+                padding-right: 3px;
+            }
         }
     }
 }

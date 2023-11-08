@@ -4,6 +4,7 @@ export enum FactionEnum {
 }
 
 export enum ClassEnum {
+    Paladin = 'paladin',
     Warrior = 'warrior',
 }
 

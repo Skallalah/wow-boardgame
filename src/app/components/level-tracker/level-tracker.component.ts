@@ -44,7 +44,7 @@ export class LevelTrackerComponent {
             LevelConfig.MAX_EXPERIENCE + 1
         ).map((experience) => {
             return {
-                level: experience === 30 ? 5 : undefined,
+                level: LevelConfig.getLevelFromExperience(experience),
                 experience,
                 players: players
                     .filter((p) => p.experience === experience)

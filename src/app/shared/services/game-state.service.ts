@@ -37,17 +37,24 @@ export class GameStateService extends RxState<GameState> {
 
         // TODO: remove testing values
         player_1: {
-            id: 'warrior',
+            id: 'paladin',
             faction: FactionEnum.Alliance,
-            class: ClassEnum.Warrior,
-            experience: 0,
+            class: ClassEnum.Paladin,
+            experience: 4,
             gold: 5,
         },
         players: [],
     };
 
     readonly players$ = this.select(selectSlice(['player_1'])).pipe(
-        map(({ player_1 }) => [player_1])
+        map(({ player_1 }) => [
+            player_1,
+            player_1,
+            player_1,
+            player_1,
+            player_1,
+            player_1,
+        ])
     );
 
     constructor() {
