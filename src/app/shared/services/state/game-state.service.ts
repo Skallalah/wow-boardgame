@@ -3,9 +3,9 @@ import { RxState } from '@rx-angular/state';
 
 import {
     Character,
-    ClassEnum,
-    FactionEnum,
-} from '../entities/character.entity';
+    Class,
+    Faction,
+} from '../../entities/character.entity';
 import { selectSlice } from '@rx-angular/state/selections';
 import { map } from 'rxjs';
 
@@ -38,8 +38,8 @@ export class GameStateService extends RxState<GameState> {
         // TODO: remove testing values
         player_1: {
             id: 'paladin',
-            faction: FactionEnum.Alliance,
-            class: ClassEnum.Paladin,
+            faction: Faction.Alliance,
+            class: Class.Paladin,
             experience: 4,
             gold: 5,
         },

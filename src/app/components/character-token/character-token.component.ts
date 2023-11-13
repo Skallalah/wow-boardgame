@@ -1,6 +1,6 @@
 import { Component, HostBinding, Input } from '@angular/core';
 import { CharactersConfig } from '../../shared/config';
-import { FactionEnum } from '../../shared/entities';
+import { Faction } from '../../shared/entities';
 import { ColorConfig } from '../../shared/config/color.config';
 
 @Component({
@@ -29,7 +29,7 @@ export class CharacterTokenComponent {
               )
             : '';
 
-        return faction === FactionEnum.Alliance
+        return faction === Faction.Alliance
             ? ColorConfig.ALLIANCE
             : ColorConfig.HORDE;
     }

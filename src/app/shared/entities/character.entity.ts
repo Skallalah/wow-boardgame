@@ -1,9 +1,9 @@
-export enum FactionEnum {
+export enum Faction {
     Horde = 'horde',
     Alliance = 'alliance',
 }
 
-export enum ClassEnum {
+export enum Class {
     Paladin = 'paladin',
     Warrior = 'warrior',
 }
@@ -11,8 +11,8 @@ export enum ClassEnum {
 export interface Character {
     id: string;
 
-    faction: FactionEnum;
-    class: ClassEnum;
+    faction: Faction;
+    class: Class;
 
     gold: number;
     experience: number;

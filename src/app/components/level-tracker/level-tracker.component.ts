@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RxState } from '@rx-angular/state';
-import { GameStateService } from '../../shared/services/game-state.service';
+import { GameStateService } from '../../shared/services/state/game-state.service';
 import { Observable, map } from 'rxjs';
 import { Character } from '../../shared/entities';
 import { range } from 'lodash';

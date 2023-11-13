@@ -1,11 +1,11 @@
-import { ClassEnum, FactionEnum } from '../entities';
+import { Class, Faction } from '../entities';
 
 interface CharacterData {
     id: string;
 
     name: string;
-    faction: FactionEnum;
-    class: ClassEnum;
+    faction: Faction;
+    class: Class;
 
     portrait: string;
 }
@@ -16,8 +16,8 @@ export class CharactersConfig {
         {
             id: 'paladin',
             name: 'Uther',
-            faction: FactionEnum.Alliance,
-            class: ClassEnum.Paladin,
+            faction: Faction.Alliance,
+            class: Class.Paladin,
             portrait:
                 'assets/images/characters/portraits/paladin_alliance.jpeg',
         },
