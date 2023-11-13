@@ -12,6 +12,8 @@ export enum CreatureRating {
 export interface Creature {
     id: CreatureEnum;
 
+    portrait: string
+
     name: string;
 
     threat: number[];

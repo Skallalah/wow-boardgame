@@ -21,14 +21,12 @@ interface GameState {
     // players
     player_1: Character;
     players: Character[];
-
-    // events
 }
 
 @Injectable({
     providedIn: 'root',
 })
-export class GameStateService extends RxState<GameState> {
+export class DataReferenceService extends RxState<GameState> {
     private readonly INIT_CONFIG: Partial<GameState> = {
         turn: 0,
 
