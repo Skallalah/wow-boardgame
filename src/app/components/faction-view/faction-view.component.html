@@ -1,0 +1,6 @@
+<div class="container" *ngIf="viewModel$ | async as $">
+    <app-character-view
+        *ngFor="let id of $.characterIdentifiers"
+        [characterIdentifier]="id"
+    ></app-character-view>
+</div>

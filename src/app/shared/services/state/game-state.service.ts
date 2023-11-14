@@ -46,14 +46,7 @@ export class GameStateService extends RxState<GameState> {
     };
 
     readonly players$ = this.select(selectSlice(['player_1'])).pipe(
-        map(({ player_1 }) => [
-            player_1,
-            player_1,
-            player_1,
-            player_1,
-            player_1,
-            player_1,
-        ])
+        map(({ player_1 }) => [player_1, player_1, player_1])
     );
 
     constructor() {

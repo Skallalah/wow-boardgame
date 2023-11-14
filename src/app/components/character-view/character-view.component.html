@@ -1,0 +1,18 @@
+<div class="container" *ngIf="viewModel$ | async as $">
+    <div class="player-name">{{ $.player }}</div>
+    <div class="character-info">
+        <div class="name">{{ $.name }}</div>
+        <div class="data">
+            <img class="image" [src]="$.portrait" />
+            <div>
+                <div class="level">
+                    <div class="level">{{ $.level }}</div>
+                    <div class="stats"></div>
+                </div>
+                <div class="gold" (scroll)="onScroll($event)">
+                    {{ $.gold }} or
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
