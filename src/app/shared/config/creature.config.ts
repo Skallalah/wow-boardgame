@@ -1,19 +1,22 @@
 import { Creature, CreatureEnum, CreatureRating } from '../entities';
 
 interface CreatureData {
-    name: string;
+    id: CreatureEnum;
+
     portrait: string;
 
-    threat: number;
-    attack: number;
-    health: number;
+    name: string;
+
+    threat: number[];
+    attack: number[];
+    health: number[];
 
     capacity: string;
 }
 
 export class CreatureConfig {
     // TODO: replace with true data
-    static CREATURES: Creature[] = [
+    static CREATURES: CreatureData[] = [
         {
             id: CreatureEnum.Murloc,
             portrait: '',
@@ -25,10 +28,7 @@ export class CreatureConfig {
         },
     ];
 
-    static getCreatureData(
-        id: CreatureEnum,
-        type: CreatureRating
-    ): CreatureData {
+    static getCreatureData(id: CreatureEnum, type: CreatureRating): Creature {
         const creature = this.CREATURES.find((c) => c.id === id);
 
         if (!creature) {
@@ -44,7 +44,7 @@ export class CreatureConfig {
     }
 
     static getCreatureAttributeByRating(
-        creature: Creature,
+        creature: CreatureData,
         attribute: 'threat' | 'attack' | 'health',
         type: CreatureRating
     ): number {

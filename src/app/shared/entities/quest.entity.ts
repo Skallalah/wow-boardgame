@@ -13,14 +13,13 @@ export interface QuestItemReward {
     rarity: ItemRarity;
 }
 
-interface QuestMonster {
+interface QuestCreature {
     type: Creature['id'];
     difficulty: CreatureRating;
     quantity: number;
-    zone: string;
 }
 
-export type QuestMonsterGroup = QuestMonster[];
+export type QuestCreatureGroup = { zone: string; creatures: QuestCreature[] };
 
 export interface Quest {
     id: string;
@@ -30,8 +29,8 @@ export interface Quest {
     rating: QuestRating;
     level: number;
 
-    group: QuestMonsterGroup;
-    additionnalGroup: QuestMonsterGroup;
+    group: QuestCreatureGroup;
+    additionnalGroup: QuestCreatureGroup;
 
     reward: {
         gold: number;

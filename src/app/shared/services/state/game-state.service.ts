@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RxState } from '@rx-angular/state';
 
-import {
-    Character,
-    Class,
-    Faction,
-} from '../../entities/character.entity';
+import { Character, Class, Faction } from '../../entities/character.entity';
 import { selectSlice } from '@rx-angular/state/selections';
 import { map } from 'rxjs';
 
@@ -40,6 +36,7 @@ export class GameStateService extends RxState<GameState> {
         // TODO: remove testing values
         player_1: {
             id: 'paladin',
+            player: 'Lenny',
             faction: Faction.Alliance,
             class: Class.Paladin,
             experience: 4,

@@ -16,9 +16,9 @@ export interface Creature {
 
     name: string;
 
-    threat: number[];
-    attack: number[];
-    health: number[];
+    threat: number;
+    attack: number;
+    health: number;
 
     capacity: string;
 }

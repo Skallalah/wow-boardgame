@@ -11,6 +11,8 @@ export enum Class {
 export interface Character {
     id: string;
 
+    player: string;
+
     faction: Faction;
     class: Class;
 
