@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, ViewChild } from '@angular/core';
 import { RxState } from '@rx-angular/state';
 import { GameStateService } from '../../shared/services/state/game-state.service';
 import { Observable, map } from 'rxjs';
 import { CharactersConfig, LevelConfig } from '../../shared/config';
+import { CounterComponent } from '../counter/counter.component';
 
 interface ViewModel {
     name: string;
@@ -18,10 +19,14 @@ interface ViewModel {
     selector: 'app-character-view',
     templateUrl: './character-view.component.html',
     styleUrls: ['./character-view.component.scss'],
-    imports: [RxState],
+    providers: [RxState],
 })
 export class CharacterViewComponent {
+    @ViewChild(CounterComponent) child: CounterComponent | undefined;
+
     @Input() characterIdentifier = '';
+
+    readonly goldClicked$ = new EventEmitter<number>();
 
     viewModel$: Observable<ViewModel> = this.gameState.players$.pipe(
         map((players) =>
@@ -53,9 +58,17 @@ export class CharacterViewComponent {
         })
     );
 
-    constructor(private readonly gameState: GameStateService) {}
+    constructor(private readonly gameState: GameStateService) {
+        this.sideEffects();
+    }
 
-    onScroll(event: any) {
-        console.log(event);
+    sideEffects() {
+        this.gameState.hold(this.goldClicked$, (gold) => {
+            console.log('test', gold);
+
+            console.log(this.child);
+
+            this.child?.activate();
+        });
     }
 }

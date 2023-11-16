@@ -22,7 +22,7 @@ interface ViewModel {
     selector: 'app-level-tracker',
     templateUrl: './level-tracker.component.html',
     styleUrls: ['./level-tracker.component.scss'],
-    imports: [RxState],
+    providers: [RxState],
 })
 export class LevelTrackerComponent {
     viewModel$: Observable<ViewModel> = this.gameState.players$.pipe(

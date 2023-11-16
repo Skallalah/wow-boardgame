@@ -12,7 +12,7 @@ interface ViewModel {
     selector: 'app-faction-view',
     templateUrl: './faction-view.component.html',
     styleUrls: ['./faction-view.component.scss'],
-    imports: [RxState],
+    providers: [RxState],
 })
 export class FactionViewComponent {
     @Input() faction: Faction | undefined;

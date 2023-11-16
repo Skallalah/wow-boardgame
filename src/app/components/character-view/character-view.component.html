@@ -9,8 +9,11 @@
                     <div class="level">{{ $.level }}</div>
                     <div class="stats"></div>
                 </div>
-                <div class="gold" (scroll)="onScroll($event)">
-                    {{ $.gold }} or
+                <div class="gold">
+                    <div class="value" (click)="goldClicked$.emit($.gold)">
+                        {{ $.gold }} gold
+                    </div>
+                    <app-counter></app-counter>
                 </div>
             </div>
         </div>

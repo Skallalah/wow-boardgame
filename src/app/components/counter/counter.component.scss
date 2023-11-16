@@ -1,0 +1,14 @@
+:host {
+    position: absolute;
+    padding: 5px;
+    border: solid 1px black;
+
+    .container {
+        display: flex;
+        flex-direction: row;
+
+        input {
+            width: 50px;
+        }
+    }
+}

@@ -16,8 +16,6 @@ export class LevelConfig {
             (v) => experience >= v
         );
 
-        console.log(level);
-
         return level >= 0 ? level + 1 : undefined;
     }
 }

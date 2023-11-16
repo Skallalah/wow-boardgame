@@ -1,0 +1,17 @@
+<div
+    class="container"
+    clickOutside
+    (clickOutside)="onClickOutside($event)"
+    [hidden]="isHidden"
+>
+    <input
+        type="number"
+        id="number"
+        *ngIf="viewModel$ | async as $"
+        [max]="$.max"
+        [min]="$.min"
+        [(ngModel)]="$.value"
+    />
+    <button>+</button>
+    <button>-</button>
+</div>
